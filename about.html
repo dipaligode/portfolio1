@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <section id="home" class="min-h-screen pt-32">HomeContent Here</section>
+    <section id="about" class="min-h-screen pt-32">About Content Here</section>
+    <section id="skills" class="min-h-screen pt-32">Skills Content Here</section>
+    <section id="portfolio" class="min-h-screen pt-32">Portfolio Content Here</section>
+    <section id="contact" class="min-h-screen pt-32">Contact Content Here</section>
+
+  <script>
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("mobileMenu").classList.add("hidden");
+  });
+});
+
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+
+    function toggleTheme() {
+          const html = document.documentElement;
+          const thumb = document.getElementById("toggleThumb");
+      
+          html.classList.toggle("dark");
+      
+          // Slide the toggle thumb left or right
+          if (html.classList.contains("dark")) {
+            thumb.classList.remove("left-0.5");
+            thumb.classList.add("left-6");
+            localStorage.theme = "dark";
+          } else {
+            thumb.classList.remove("left-6");
+            thumb.classList.add("left-0.5");
+            localStorage.theme = "light";
+          }
+        }
+      
+        // On page load, set the correct position
+        document.addEventListener("DOMContentLoaded", () => {
+          const html = document.documentElement;
+          const thumb = document.getElementById("toggleThumb");
+      
+          if (
+            localStorage.theme === "dark" ||
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          ) {
+            html.classList.add("dark");
+            thumb.classList.remove("left-0.5");
+            thumb.classList.add("left-6");
+          } else {
+            html.classList.remove("dark");
+            thumb.classList.remove("left-6");
+            thumb.classList.add("left-0.5");
+          }
+        });
+
+  </script>
+</body>
+</html>

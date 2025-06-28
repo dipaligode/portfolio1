@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Enable dark mode using class strategy -->
+    <script>
+        tailwind.config = {
+        darkMode: 'class' // this lets us use the 'dark:' prefix
+        }
+    </script>
+</head>
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white">
+
+    <div class="flex items-center justify-between py-10 px-6 sm:px-10 lg:px-20 fixed top-0 z-50 backdrop-blur-md bg-white dark:bg-gray-900 w-full text-black dark:text-white">
+        <div class="hidden sm:flex absolute left-1/2 transform -translate-x-1/2 gap-6 text-base font-normal pri-text">
+            <a href="#home" class="cursor-pointer hover:text-orange-500 transition-all duration-300">Home</a>
+            <a href="#about" class="cursor-pointer hover:text-orange-500 transition-all duration-300">About</a>
+            <a href="#resume" class="cursor-pointer hover:text-orange-500 transition-all duration-300">Resume</a>
+            <a href="#portfolio" class="cursor-pointer hover:text-orange-500 transition-all duration-300">Portfolio</a>
+            <!-- Toggle Button Only -->
+            <div class="relative w-14 h-8 cursor-pointer ml-auto" onclick="toggleTheme()">
+                <!-- Background track -->
+                <div class="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded-full transition-colors duration-300"></div>
+            
+                <!-- Sliding Thumb -->
+                <div id="toggleThumb"
+                    class="absolute top-0.5 left-0.5 w-7 h-7 bg-white dark:bg-black rounded-full flex items-center justify-center transition-all duration-300">
+                
+                <!-- Moon Icon (light mode) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black dark:hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+            
+                <!-- Sun Icon (dark mode) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400 hidden dark:inline" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m8.66-9h-1M4.34 12h-1m15.07 6.07l-.71-.71M6.34 6.34l-.71-.71m12.02 12.02l-.71-.71M6.34 17.66l-.71-.71M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                </svg>
+            
+                </div>
+            </div>
+        </div>
+
+        <div class="sm:hidden flex justify-end ml-auto">
+            <button id="menuToggle" class="text-gray-600 focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+  
+    </div>
+    
+    <div id="mobileMenu" class="transition-all duration-300 ease-in-out transform fixed top-[70px] right-4 sm:hidden hidden w-48 bg-white dark:bg-gray-800 shadow-lg z-50 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+        <a href="#home" class="block py-2 px-4 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Home</a>
+        <a href="#about" class="block py-2 px-4 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">About</a>
+        <a href="#resume" class="block py-2 px-4 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Resume</a>
+        <a href="#portfolio" class="block py-2 px-4 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Portfolio</a>
+
+        <!-- Mobile Toggle Theme -->
+        <div class="w-full sm:hidden flex justify-center pt-4 mb-4">
+            <div class="relative w-14 h-8 cursor-pointer" onclick="toggleTheme()">
+                <div class="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded-full transition-colors duration-300"></div>
+                <div id="toggleThumb"
+                class="absolute top-0.5 left-0.5 w-7 h-7 bg-white dark:bg-black rounded-full flex items-center justify-center transition-all duration-300">
+                
+                <!-- Moon Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black dark:hidden" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+                <!-- Sun Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400 hidden dark:inline" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 3v1m0 16v1m8.66-9h-1M4.34 12h-1m15.07 6.07l-.71-.71M6.34 6.34l-.71-.71m12.02 12.02l-.71-.71M6.34 17.66l-.71-.71M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="min-h-screen pt-10 px-4">
+      <div class="sidebar-info flex flex-col md:flex-row items-center justify-center gap-8 md:gap-14 w-full min-h-[calc(100vh-2.5rem)] bg-white dark:bg-gray-800">
+    
+        <!-- Profile Image -->
+        <figure 
+          class="profile-box w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-gray-300 dark:border-gray-600"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+        >
+          <img src="profile.jpg" alt="profile"
+               class="w-full h-full object-cover scale-110 translate-x-1 -translate-y-1" />
+        </figure>
+    
+        <!-- Text Content -->
+        <div 
+          class="info-content text-center md:text-left mt-4 md:mt-0"
+          data-aos="fade-left"
+          data-aos-duration="1200"
+          data-aos-delay="200"
+        >
+          <h1 class="name text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
+            Dipali Gode
+          </h1>
+          <p class="title text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mt-2 leading-relaxed text-center md:text-left">
+            Full Stack Web Developer passionate about learning
+            <span class="hidden md:inline"><br></span>
+            and solving real-world problems.
+          </p>                   
+          <!-- Social Icons Right Aligned -->
+          <div class="flex justify-center md:justify-start space-x-5 mt-4">
+            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" class="hover:text-orange-500 transition">
+              <i class="fab fa-github text-lg"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email" class="hover:text-orange-500 transition">
+              <i class="fas fa-envelope text-lg"></i>
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn" class="hover:text-orange-500 transition">
+              <i class="fab fa-linkedin-in text-lg"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="min-h-screen pt-32 px-6 md:px-16 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+      <!-- Heading -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold tracking-tight" data-aos="fade-up">About Me</h2>
+        <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full" data-aos="zoom-in"></div>
+      </div>
+    
+      <!-- Bio Paragraph First -->
+      <div class="max-w-4xl mx-auto mb-20" data-aos="fade-up" data-aos-duration="1000">
+        <p class="text-lg leading-relaxed mb-6">
+          I’m a <strong>Master of Computer Applications (MCA)</strong> student from Pune, India, passionate about crafting scalable and responsive web applications. My journey into tech started with a love for solving real-world problems and bringing ideas to life through clean, functional code.
+        </p>
+        <p class="text-lg leading-relaxed mb-6">
+          Through freelance work and my ongoing internship at <strong>Media Urbana</strong>, I’ve gained hands-on experience working on industry-level projects like <em>ViewTemples.com</em>. I focus mainly on backend development with PHP, MySQL, Laravel, and integrate real-world features like email systems, OTP verification, and payment gateways.
+        </p>
+        <p class="text-lg leading-relaxed">
+          Currently, I’m focused on growing as a <strong>full stack software engineer</strong>, continuously learning, experimenting with new tools, and building meaningful tech solutions.
+        </p>
+      </div>
+    
+      <!-- What I’m Doing / Skills Section -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+        <!-- Skill Card -->
+        <div class="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2 text-orange-500">🖥 Web Design</h4>
+          <p>Designing clean, responsive, and user-friendly interfaces with a focus on clarity and accessibility.</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2 text-orange-500">💻 Web Development</h4>
+          <p>Full-stack apps with PHP, Laravel, MySQL, and modern frontend tools like Tailwind CSS and JavaScript.</p>
+        </div>
+    
+        <div class="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2 text-orange-500">📱 Backend-Focused Systems</h4>
+          <p>Creating robust logic, secure routing, admin dashboards, and OTP/email-based verification flows.</p>
+        </div>
+    
+        <div class="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2 text-orange-500">🔗 API Integration</h4>
+          <p>Third-party services like Razorpay & Supabase for enhanced payment and backend functionality.</p>
+        </div>
+    
+        <div class="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2 text-orange-500">📈 Real-World Projects</h4>
+          <p>Live platforms with admin-controlled content, contact workflows, and user-facing solutions.</p>
+        </div>
+    
+        <div class="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2 text-orange-500">🚀 Continuous Learning</h4>
+          <p>Constant upskilling via internships, collaboration, and building secure, production-ready software.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="resume" class="min-h-screen pt-24 px-6 md:px-20 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
+      <!-- Heading -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold" data-aos="fade-up">Resume</h2>
+        <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full" data-aos="zoom-in"></div>
+      </div>
+    
+      <!-- Education Section -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-semibold text-orange-500 mb-6 border-b border-orange-500 pb-2" data-aos="fade-right">🎓 Education</h3>
+    
+        <div class="space-y-8">
+          <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow" data-aos="fade-up">
+            <h4 class="text-xl font-bold">PES Modern College of Engineering, Pune</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400 italic">Master of Computer Applications (MCA) | July 2024 – Present</p>
+            <p class="mt-2">Pursuing MCA with a focus on full stack development, backend systems, and real-world application building.</p>
+          </div>
+    
+          <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
+            <h4 class="text-xl font-bold">St. Mira's College for Girls, Pune</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400 italic">Bachelor of Computer Science | Sept 2021 – Apr 2024</p>
+            <p class="mt-2">Graduated with a CGPA of 8.45. Built a strong foundation in programming, databases, and full stack development.</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Experience Section -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-semibold text-orange-500 mb-6 border-b border-orange-500 pb-2" data-aos="fade-right">💼 Experience</h3>
+    
+        <div class="space-y-8">
+          <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow" data-aos="fade-up">
+            <h4 class="text-xl font-bold">Full Stack Web Developer Intern – Media Urbana</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400 italic">March 2025 – Present</p>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Worked on scalable web applications with HTML, CSS, JS, Tailwind, PHP, Laravel, MySQL</li>
+              <li>Integrated Razorpay for secure payment workflows</li>
+              <li>Contributed to CMS logic, email systems, backend routing</li>
+              <li>Actively involved in agile sprints, code reviews, and team collaboration</li>
+            </ul>
+          </div>
+    
+          <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
+            <h4 class="text-xl font-bold">Freelance Web Developer</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400 italic">Feb 2025 – Present</p>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Revamped and optimized client websites for UX, SEO, and performance</li>
+              <li>Used HTML, CSS, JavaScript, PHP, Tailwind to build fast, responsive solutions</li>
+              <li>Directly communicated with clients to align goals and designs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Skills Section -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-orange-500 mb-6 border-b border-orange-500 pb-2" data-aos="fade-right">Key Skills</h3>
+    
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 justify-center items-center">
+          <!-- Skill -->
+          <div class="flex flex-col items-center" data-aos="zoom-in">
+            <div class="relative w-24 h-24">
+              <svg class="absolute top-0 left-0 w-full h-full">
+                <circle class="text-gray-300" stroke-width="6" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+                <circle class="text-orange-500" stroke-width="6" stroke-dasharray="226.2" stroke-dashoffset="33.9" stroke-linecap="round" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+              </svg>
+              <span class="absolute inset-0 flex items-center justify-center font-semibold text-lg">85%</span>
+            </div>
+            <p class="mt-2">Java</p>
+          </div>
+    
+          <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+            <div class="relative w-24 h-24">
+              <svg class="absolute top-0 left-0 w-full h-full">
+                <circle class="text-gray-300" stroke-width="6" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+                <circle class="text-orange-500" stroke-width="6" stroke-dasharray="226.2" stroke-dashoffset="33.9" stroke-linecap="round" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+              </svg>
+              <span class="absolute inset-0 flex items-center justify-center font-semibold text-lg">85%</span>
+            </div>
+            <p class="mt-2">PHP</p>
+          </div>
+    
+          <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="400">
+            <div class="relative w-24 h-24">
+              <svg class="absolute top-0 left-0 w-full h-full">
+                <circle class="text-gray-300" stroke-width="6" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+                <circle class="text-orange-500" stroke-width="6" stroke-dasharray="226.2" stroke-dashoffset="45.2" stroke-linecap="round" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+              </svg>
+              <span class="absolute inset-0 flex items-center justify-center font-semibold text-lg">80%</span>
+            </div>
+            <p class="mt-2">HTML, CSS & JS</p>
+          </div>
+    
+          <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="300">
+            <div class="relative w-24 h-24">
+              <svg class="absolute top-0 left-0 w-full h-full">
+                <circle class="text-gray-300" stroke-width="6" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+                <circle class="text-orange-500" stroke-width="6" stroke-dasharray="226.2" stroke-dashoffset="56.5" stroke-linecap="round" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+              </svg>
+              <span class="absolute inset-0 flex items-center justify-center font-semibold text-lg">75%</span>
+            </div>
+            <p class="mt-2">Laravel & Tailwind</p>
+          </div>
+    
+          <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="400">
+            <div class="relative w-24 h-24">
+              <svg class="absolute top-0 left-0 w-full h-full">
+                <circle class="text-gray-300" stroke-width="6" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+                <circle class="text-orange-500" stroke-width="6" stroke-dasharray="226.2" stroke-dashoffset="45.2" stroke-linecap="round" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+              </svg>
+              <span class="absolute inset-0 flex items-center justify-center font-semibold text-lg">80%</span>
+            </div>
+            <p class="mt-2">SQL (My/Postgre)</p>
+          </div>
+    
+          <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="500">
+            <div class="relative w-24 h-24">
+              <svg class="absolute top-0 left-0 w-full h-full">
+                <circle class="text-gray-300" stroke-width="6" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+                <circle class="text-orange-500" stroke-width="6" stroke-dasharray="226.2" stroke-dashoffset="56.5" stroke-linecap="round" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+              </svg>
+              <span class="absolute inset-0 flex items-center justify-center font-semibold text-lg">75%</span>
+            </div>
+            <p class="mt-2">Git & Version Ctrl</p>
+          </div>
+    
+          <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="600">
+            <div class="relative w-24 h-24">
+              <svg class="absolute top-0 left-0 w-full h-full">
+                <circle class="text-gray-300" stroke-width="6" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+                <circle class="text-orange-500" stroke-width="6" stroke-dasharray="226.2" stroke-dashoffset="56.5" stroke-linecap="round" stroke="currentColor" fill="transparent" r="36" cx="48" cy="48"/>
+              </svg>
+              <span class="absolute inset-0 flex items-center justify-center font-semibold text-lg">75%</span>
+            </div>
+            <p class="mt-2">JDBC & Servlets</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="portfolio" class="min-h-screen pt-32 px-6 md:px-16 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+      <!-- Heading -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold tracking-tight" data-aos="fade-up">Portfolio</h2>
+        <!-- <p class="text-lg mt-4 text-gray-600 dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
+          A selection of my recent projects, showcasing innovative solutions and technical expertise.
+        </p> -->
+        <div class="w-24 h-1 bg-orange-500 mx-auto mt-6 rounded-full" data-aos="zoom-in"></div>
+      </div>
+    
+      <!-- Project Grid -->
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" data-aos="fade-up" data-aos-delay="200">
+    
+        <!-- Project Card -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md overflow-hidden group">
+          <div class="relative">
+            <img src="https://via.placeholder.com/400x220.png?text=Project+Screenshot" alt="Project Image" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300">
+            <!-- Overlay buttons -->
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition duration-300">
+              <a href="#" class="bg-orange-500 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-600">View Live</a>
+              <a href="#" class="bg-white text-orange-500 px-4 py-2 rounded-md text-sm font-semibold hover:bg-gray-100">GitHub</a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold text-orange-500 mb-1">Website Revamp for Clients</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+              Redesigned and optimized websites for performance, responsiveness, and modern UX practices.
+            </p>
+            <p class="text-xs font-medium text-gray-500 dark:text-gray-300">
+              <strong>Technologies:</strong> HTML, CSS, JavaScript, PHP, MySQL
+            </p>
+          </div>
+        </div>
+    
+        <!-- Project Card -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md overflow-hidden group">
+          <div class="relative">
+            <img src="https://via.placeholder.com/400x220.png?text=Playlist+System" alt="Playlist System" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition duration-300">
+              <a href="#" class="bg-orange-500 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-600">View Demo</a>
+              <a href="#" class="bg-white text-orange-500 px-4 py-2 rounded-md text-sm font-semibold hover:bg-gray-100">GitHub</a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold text-orange-500 mb-1">Playlist Management System</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+              Terminal-based music player using stacks and circular doubly linked lists for song handling and history.
+            </p>
+            <p class="text-xs font-medium text-gray-500 dark:text-gray-300">
+              <strong>Technologies:</strong> C, Stack, Circular Doubly Linked List
+            </p>
+          </div>
+        </div>
+    
+        <!-- Project Card -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md overflow-hidden group">
+          <div class="relative">
+            <img src="https://via.placeholder.com/400x220.png?text=Student+System" alt="Student Management System" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition duration-300">
+              <a href="#" class="bg-orange-500 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-600">View Live</a>
+              <a href="#" class="bg-white text-orange-500 px-4 py-2 rounded-md text-sm font-semibold hover:bg-gray-100">GitHub</a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold text-orange-500 mb-1">Student Management System</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+              Web app for managing student records with CRUD ops and PostgreSQL integration.
+            </p>
+            <p class="text-xs font-medium text-gray-500 dark:text-gray-300">
+              <strong>Technologies:</strong> JSP, HTML, CSS, Bootstrap, PostgreSQL
+            </p>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    <br><br>
+    <footer class="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 px-6 md:px-16 py-4">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600 dark:text-gray-400 gap-1">
+    
+        <!-- Center Branding -->
+        <div class="text-center sm:text-left w-full sm:w-auto">
+          <p>&copy; 2025 <span class="text-orange-500 font-semibold">Your Name</span>. Built with passion and purpose.</p>
+        </div>
+    
+        <!-- Social Icons Right Aligned -->
+        <div class="flex justify-center sm:justify-end space-x-5 w-full sm:w-auto">
+          <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" class="hover:text-orange-500 transition">
+            <i class="fab fa-github text-lg"></i>
+          </a>
+          <a href="mailto:youremail@example.com" aria-label="Email" class="hover:text-orange-500 transition">
+            <i class="fas fa-envelope text-lg"></i>
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn" class="hover:text-orange-500 transition">
+            <i class="fab fa-linkedin-in text-lg"></i>
+          </a>
+        </div>
+    
+      </div>
+    </footer>
+    
+    <!-- Floating Contact Button and Form -->
+    <div class="fixed bottom-16 right-6 z-50">
+      <!-- Contact Form Popup -->
+      <div id="contactFormPopup" class="hidden bg-white shadow-xl p-6 rounded-xl w-80 border border-gray-300">
+        <h3 class="text-lg font-semibold mb-4 text-gray-800">Contact Me</h3>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Your Name" required class="w-full mb-3 px-3 py-2 border rounded" />
+          <input type="email" name="email" placeholder="Your Email" required class="w-full mb-3 px-3 py-2 border rounded" />
+          <textarea name="message" placeholder="Your Message" required class="w-full mb-3 px-3 py-2 border rounded h-24"></textarea>
+          <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded">Send</button>
+        </form>
+      </div>
+
+      <!-- Floating Button -->
+      <div class="flex flex-col items-center">
+        <button id="toggleFormBtn" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2">
+          <i class="fas fa-envelope text-xl"></i>
+          <span class="text-sm text-white">Contact Me</span>
+        </button>
+      </div>
+      
+    </div>
+
+    <script>
+        function toggleTheme() {
+          const html = document.documentElement;
+          const thumb = document.getElementById("toggleThumb");
+      
+          html.classList.toggle("dark");
+      
+          // Slide the toggle thumb left or right
+          if (html.classList.contains("dark")) {
+            thumb.classList.remove("left-0.5");
+            thumb.classList.add("left-6");
+            localStorage.theme = "dark";
+          } else {
+            thumb.classList.remove("left-6");
+            thumb.classList.add("left-0.5");
+            localStorage.theme = "light";
+          }
+        }
+      
+        // On page load, set the correct position
+        document.addEventListener("DOMContentLoaded", () => {
+          const html = document.documentElement;
+          const thumb = document.getElementById("toggleThumb");
+      
+          if (
+            localStorage.theme === "dark" ||
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          ) {
+            html.classList.add("dark");
+            thumb.classList.remove("left-0.5");
+            thumb.classList.add("left-6");
+          } else {
+            html.classList.remove("dark");
+            thumb.classList.remove("left-6");
+            thumb.classList.add("left-0.5");
+          }
+        });
+
+        document.getElementById("menuToggle").addEventListener("click", function () {
+            const menu = document.getElementById("mobileMenu");
+            menu.classList.toggle("hidden");
+        });
+
+        document.querySelectorAll("#mobileMenu a").forEach(link => {
+            link.addEventListener("click", () => {
+                document.getElementById("mobileMenu").classList.add("hidden");
+            });
+        });
+
+      AOS.init();
+
+      const formBtn = document.getElementById('toggleFormBtn');
+      const formPopup = document.getElementById('contactFormPopup');
+
+      formBtn.addEventListener('click', () => {
+        formPopup.classList.toggle('hidden');
+      });
+
+      window.addEventListener('click', (e) => {
+        if (!formPopup.contains(e.target) && !formBtn.contains(e.target)) {
+          formPopup.classList.add('hidden');
+        }
+      });
+
+      // Handle Form Submission via Fetch
+      document.getElementById('contactForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+
+        const res = await fetch('contact_form_handler.php', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await res.text();
+        alert(result);
+        this.reset();
+        formPopup.classList.add('hidden');
+      });
+    </script>
+      
+</body>
+</html>
