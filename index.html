@@ -117,8 +117,8 @@
 
   </div>
       
-  <div id="mobileMenu" class="hidden absolute top-[70px] right-4 sm:hidden w-48 bg-white dark:bg-gray-800 shadow-lg z-50 rounded-lg border border-gray-200 dark:border-gray-700">
-    <ul class="flex flex-col">
+  <div id="mobileMenu" class="hidden fixed top-[70px] right-4 sm:hidden w-48 bg-white dark:bg-gray-800 shadow-lg z-50 rounded-lg border border-gray-200 dark:border-gray-700">    
+  <ul class="flex flex-col">
       <li><a href="#home" class="block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Home</a></li>
       <li><a href="#about" class="block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">About</a></li>
       <li><a href="#skills" class="block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Skills</a></li>
@@ -734,13 +734,8 @@
         });
 
         document.getElementById("menuToggle").addEventListener("click", function () {
-            const menu = document.getElementById("mobileMenu");
-            if (menu.classList.contains("hidden")) {
-              menu.classList.remove("hidden");
-            } else {
-              menu.classList.add("hidden");
-            }
-
+          const menu = document.getElementById("mobileMenu");
+          menu.classList.toggle("hidden");
         });
 
       // 🚀 Highlight active nav link
