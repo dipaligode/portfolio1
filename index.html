@@ -289,51 +289,86 @@
         </ul>
       </div>
     
-      <!-- Skill Tabs / Accordion -->
-      <div class="w-full max-w-6xl">
-        <div id="accordion" class="flex flex-col md:flex-row items-stretch w-full" data-aos="fade-up" data-aos-delay="400">
+      <!-- Accordion Section -->
+      <div class="w-full max-w-6xl mx-auto">
+        <div id="accordion" class="flex flex-col md:flex-row w-full" data-aos="fade-up" data-aos-delay="400">
           
-          <!-- Step Buttons with different delays -->
-          <div class="accordion-item flex md:flex-col items-center justify-center h-16 md:h-60" data-index="0">
-            <button class="bg-orange-700 text-black w-full md:w-16 h-full font-semibold hover:bg-orange-600 rotate-text whitespace-nowrap transition-all duration-300 ease-in-out">
+          <!-- UI/UX -->
+          <div class="accordion-item flex-col md:flex-col items-start justify-start md:items-center md:justify-center h-auto md:h-60" data-index="0">
+            <button class="bg-orange-700 text-black w-full md:w-16 h-12 font-semibold hover:bg-orange-600 whitespace-nowrap transition-all duration-300 ease-in-out">
               🖥 UI/UX
             </button>
+            <div class="block md:hidden bg-white dark:bg-gray-800 text-black dark:text-white px-3 py-2 text-sm">
+              <h3 class="font-semibold">UI/UX Design</h3>
+              <p>Crafting responsive, user-centric interfaces with clarity and accessibility in mind.</p>
+            </div>
           </div>
-          <div class="accordion-item flex md:flex-col items-center justify-center h-16 md:h-60" data-index="1">
-            <button class="bg-orange-600 text-black w-full md:w-16 h-full font-semibold hover:bg-orange-500 rotate-text whitespace-nowrap transition-all duration-300 ease-in-out">
+
+          <!-- Full Stack -->
+          <div class="accordion-item flex-col md:flex-col items-start justify-start md:items-center md:justify-center h-auto md:h-60" data-index="1">
+            <button class="bg-orange-600 text-black w-full md:w-16 h-12 font-semibold hover:bg-orange-500 whitespace-nowrap transition-all duration-300 ease-in-out">
               💻 Full Stack
             </button>
+            <div class="block md:hidden bg-white dark:bg-gray-800 text-black dark:text-white px-3 py-2 text-sm">
+              <h3 class="font-semibold">Full Stack Development</h3>
+              <p>Building backend-heavy apps using Laravel, MySQL, and integrating modern frontend tools.</p>
+            </div>
           </div>
-          <div class="accordion-item flex md:flex-col items-center justify-center h-16 md:h-60" data-index="2">
-            <button class="bg-orange-500 text-black w-full md:w-16 h-full font-semibold hover:bg-orange-400 rotate-text whitespace-nowrap transition-all duration-300 ease-in-out">
+
+          <!-- Real-Time -->
+          <div class="accordion-item flex-col md:flex-col items-start justify-start md:items-center md:justify-center h-auto md:h-60" data-index="2">
+            <button class="bg-orange-500 text-black w-full md:w-16 h-12 font-semibold hover:bg-orange-400 whitespace-nowrap transition-all duration-300 ease-in-out">
               🔐 Real-Time
             </button>
+            <div class="block md:hidden bg-white dark:bg-gray-800 text-black dark:text-white px-3 py-2 text-sm">
+              <h3 class="font-semibold">Real-Time Features</h3>
+              <p>OTP/email verifications, live updates, and secure authentication flows.</p>
+            </div>
           </div>
-          <div class="accordion-item flex md:flex-col items-center justify-center h-16 md:h-60" data-index="3">
-            <button class="bg-orange-400 text-black w-full md:w-16 h-full font-semibold hover:bg-orange-300 rotate-text whitespace-nowrap transition-all duration-300 ease-in-out">
+
+          <!-- API -->
+          <div class="accordion-item flex-col md:flex-col items-start justify-start md:items-center md:justify-center h-auto md:h-60" data-index="3">
+            <button class="bg-orange-400 text-black w-full md:w-16 h-12 font-semibold hover:bg-orange-300 whitespace-nowrap transition-all duration-300 ease-in-out">
               📡 API
             </button>
+            <div class="block md:hidden bg-white dark:bg-gray-800 text-black dark:text-white px-3 py-2 text-sm">
+              <h3 class="font-semibold">API & Service Integration</h3>
+              <p>Seamlessly integrating Supabase, Razorpay, and third-party tools for scalable systems.</p>
+            </div>
           </div>
-          <div class="accordion-item flex md:flex-col items-center justify-center h-16 md:h-60" data-index="4">
-            <button class="bg-orange-300 text-black w-full md:w-16 h-full font-semibold hover:bg-orange-200 rotate-text whitespace-nowrap transition-all duration-300 ease-in-out">
+
+          <!-- Deploy -->
+          <div class="accordion-item flex-col md:flex-col items-start justify-start md:items-center md:justify-center h-auto md:h-60" data-index="4">
+            <button class="bg-orange-300 text-black w-full md:w-16 h-12 font-semibold hover:bg-orange-200 whitespace-nowrap transition-all duration-300 ease-in-out">
               🚀 Deploy
             </button>
+            <div class="block md:hidden bg-white dark:bg-gray-800 text-black dark:text-white px-3 py-2 text-sm">
+              <h3 class="font-semibold">Project Deployment</h3>
+              <p>Deploying and managing production-ready systems with stability and security.</p>
+            </div>
           </div>
-          <div class="accordion-item flex md:flex-col items-center justify-center h-16 md:h-60" data-index="5">
-            <button class="bg-orange-200 text-black w-full md:w-16 h-full font-semibold hover:bg-orange-100 rotate-text whitespace-nowrap transition-all duration-300 ease-in-out">
+
+          <!-- Freelance -->
+          <div class="accordion-item flex-col md:flex-col items-start justify-start md:items-center md:justify-center h-auto md:h-60" data-index="5">
+            <button class="bg-orange-200 text-black w-full md:w-16 h-12 font-semibold hover:bg-orange-100 whitespace-nowrap transition-all duration-300 ease-in-out">
               📈 Freelance
             </button>
+            <div class="block md:hidden bg-white dark:bg-gray-800 text-black dark:text-white px-3 py-2 text-sm">
+              <h3 class="font-semibold">Freelancing Experience</h3>
+              <p>Delivered client-based solutions and collaborated on professional, time-bound projects.</p>
+            </div>
           </div>
         </div>
-    
-        <!-- Content Panel -->
-        <div id="contentPanel" class="transition-all duration-300 w-full md:w-4/5 h-60 bg-white text-black dark:bg-gray-800 dark:text-white px-4 py-4 rounded-xl shadow-lg overflow-auto mt-4" data-aos="fade-in" data-aos-delay="600">
+
+        <!-- Desktop Shared Panel -->
+        <div id="contentPanel" class="hidden md:block transition-all duration-300 w-full md:w-4/5 h-60 bg-white text-black dark:bg-gray-800 dark:text-white px-4 py-4 rounded-xl shadow-lg overflow-auto mt-4" data-aos="fade-in" data-aos-delay="600">
           <div class="h-full">
             <h2 id="contentTitle" class="text-xl font-bold mb-2"></h2>
             <p id="contentText" class="text-base opacity-90"></p>
           </div>
         </div>
       </div>
+
     
       <!-- Achievements Section -->
       <div class="mt-24" id="achievements">
@@ -633,72 +668,43 @@
       if (loader) loader.style.display = "none";
     });
 
-
     const contents = [
-      { title: 'UI/UX Design', text: 'Crafting responsive, user-centric interfaces with clarity and accessibility in mind.' },
-      { title: 'Full Stack Development', text: 'Building backend-heavy apps using Laravel, MySQL, and integrating modern frontend tools.' },
-      { title: 'Real-Time Features', text: 'OTP/email verifications, live updates, and secure authentication flows.' },
-      { title: 'API & Service Integration', text: 'Seamlessly integrating Supabase, Razorpay, and third-party tools for scalable systems.' },
-      { title: 'Project Deployment', text: 'Deploying and managing production-ready systems with stability and security.' },
-      { title: 'Freelancing Experience', text: 'Delivered client-based solutions and collaborated on professional, time-bound projects.' }
-    ];
+    { title: 'UI/UX Design', text: 'Crafting responsive, user-centric interfaces with clarity and accessibility in mind.' },
+    { title: 'Full Stack Development', text: 'Building backend-heavy apps using Laravel, MySQL, and integrating modern frontend tools.' },
+    { title: 'Real-Time Features', text: 'OTP/email verifications, live updates, and secure authentication flows.' },
+    { title: 'API & Service Integration', text: 'Seamlessly integrating Supabase, Razorpay, and third-party tools for scalable systems.' },
+    { title: 'Project Deployment', text: 'Deploying and managing production-ready systems with stability and security.' },
+    { title: 'Freelancing Experience', text: 'Delivered client-based solutions and collaborated on professional, time-bound projects.' }
+  ];
 
-    const contentPanel = document.getElementById('contentPanel');
-    const contentTitle = document.getElementById('contentTitle');
-    const contentText = document.getElementById('contentText');
-    const accordionItems = document.querySelectorAll('.accordion-item');
+  const contentPanel = document.getElementById('contentPanel');
+  const contentTitle = document.getElementById('contentTitle');
+  const contentText = document.getElementById('contentText');
+  const accordionItems = document.querySelectorAll('.accordion-item');
 
-    function showPanel(index, parentItem) {
-      contentTitle.textContent = contents[index].title;
-      contentText.textContent = contents[index].text;
+  function showPanel(index, parentItem) {
+    contentTitle.textContent = contents[index].title;
+    contentText.textContent = contents[index].text;
 
-      if (parentItem.nextSibling !== contentPanel) {
-        parentItem.parentNode.insertBefore(contentPanel, parentItem.nextSibling);
-      }
+    if (parentItem.nextSibling !== contentPanel) {
+      parentItem.parentNode.insertBefore(contentPanel, parentItem.nextSibling);
     }
+  }
 
-    // Desktop hover behavior
-    if (window.innerWidth >= 768) {
-      accordionItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-          const index = item.dataset.index;
-          showPanel(index, item);
-        });
+  if (window.innerWidth >= 768) {
+    accordionItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const index = item.dataset.index;
+        showPanel(index, item);
       });
-    } else {
-      // Mobile: click behavior
-      accordionItems.forEach(item => {
-        item.addEventListener('click', () => {
-          const index = item.dataset.index;
-          showPanel(index, item);
-        });
-      });
-    }
+    });
 
-    // Auto open: last for desktop, first for mobile
     window.addEventListener('load', () => {
-      const index = window.innerWidth >= 768 ? 5 : 0;
+      const index = 5;
       const item = accordionItems[index];
       showPanel(index, item);
     });
-
-    //mobile on scroll
-    // Observe accordion and trigger mobile tab open on scroll
-if (window.innerWidth < 768) {
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const index = 0; // open the first tab on mobile
-        const item = accordionItems[index];
-        showPanel(index, item);
-        observer.unobserve(entry.target); // only trigger once
-      }
-    });
-  }, { threshold: 0.4 }); // trigger when 40% is visible
-
-  const accordion = document.getElementById("accordion");
-  if (accordion) observer.observe(accordion);
-}
+  }
 
 
     document.addEventListener("DOMContentLoaded", () => {
