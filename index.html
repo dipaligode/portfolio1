@@ -117,13 +117,13 @@
 
   </div>
       
-  <div id="mobileMenu" class="hidden fixed top-[60px] right-3 w-44 bg-white dark:bg-gray-800 shadow-lg z-50 rounded-md border border-gray-200 dark:border-gray-700 py-2 px-3 space-y-2">
+  <div id="mobileMenu" class="hidden fixed top-[60px] right-3 w-44 bg-white dark:bg-gray-800 shadow-lg z-50 rounded-md border border-gray-200 dark:border-gray-700 py-1 px-2 space-y-1">
     <ul class="flex flex-col">
-      <li><a href="#home" class="block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Home</a></li>
-      <li><a href="#about" class="block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">About</a></li>
-      <li><a href="#skills" class="block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Skills</a></li>
-      <li><a href="#portfolio" class="block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Portfolio</a></li>
-      <li><a href="#contact" class="block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Contact</a></li>
+      <li><a href="#home" class="block px-2 py-1 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Home</a></li>
+      <li><a href="#about" class="block px-2 py-1 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">About</a></li>
+      <li><a href="#skills" class="block px-2 py-1 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Skills</a></li>
+      <li><a href="#portfolio" class="block px-2 py-1 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Portfolio</a></li>
+      <li><a href="#contact" class="block px-2 py-1 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-orange-500">Contact</a></li>
     </ul>
   
     <!-- Theme toggle without spacing -->
@@ -781,6 +781,16 @@ document.querySelectorAll("#mobileMenu a").forEach(link => {
   formBtn.addEventListener('click', () => {
     formPopup.classList.toggle('hidden');
   });
+
+  document.addEventListener("click", function (event) {
+  const menu = document.getElementById("mobileMenu");
+  const toggle = document.getElementById("menuToggle");
+
+  if (!menu.classList.contains("hidden") && !menu.contains(event.target) && !toggle.contains(event.target)) {
+    menu.classList.add("hidden");
+  }
+});
+
 
   window.addEventListener('click', (e) => {
     if (!formPopup.contains(e.target) && !formBtn.contains(e.target)) {
