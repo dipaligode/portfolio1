@@ -682,6 +682,25 @@
       showPanel(index, item);
     });
 
+    //mobile on scroll
+    // Observe accordion and trigger mobile tab open on scroll
+if (window.innerWidth < 768) {
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const index = 0; // open the first tab on mobile
+        const item = accordionItems[index];
+        showPanel(index, item);
+        observer.unobserve(entry.target); // only trigger once
+      }
+    });
+  }, { threshold: 0.4 }); // trigger when 40% is visible
+
+  const accordion = document.getElementById("accordion");
+  if (accordion) observer.observe(accordion);
+}
+
+
     document.addEventListener("DOMContentLoaded", () => {
       const text = document.getElementById("typingText");
       const duration = 3000; // match CSS animation duration
