@@ -707,14 +707,29 @@
   }
 
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const text = document.getElementById("typingText");
-      const duration = 3000; // match CSS animation duration
+  document.addEventListener("DOMContentLoaded", () => {
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) return;
 
-      setTimeout(() => {
-        text.classList.add("done");
-      }, duration);
+    const mobileItems = document.querySelectorAll(".accordion-item");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const content = entry.target.querySelector(".mobile-content");
+
+        if (entry.isIntersecting && content && content.classList.contains("opacity-0")) {
+          content.classList.remove("hidden", "opacity-0", "translate-y-4");
+          content.classList.add("opacity-100", "translate-y-0");
+        }
+      });
+    }, {
+      threshold: 0.3,
     });
+
+    mobileItems.forEach(item => {
+      observer.observe(item);
+    });
+  });
     
     tailwind.config = {
         darkMode: 'class' // this lets us use the 'dark:' prefix
