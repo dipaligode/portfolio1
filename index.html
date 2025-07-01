@@ -782,7 +782,6 @@ document.querySelectorAll("#mobileMenu a").forEach(link => {
     formPopup.classList.toggle('hidden');
   });
 
-  
   window.addEventListener('click', (e) => {
     if (!formPopup.contains(e.target) && !formBtn.contains(e.target)) {
       formPopup.classList.add('hidden');
