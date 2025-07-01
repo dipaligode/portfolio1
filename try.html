@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll Highlight Nav</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .nav-link.active {
+      color: #f97316; /* Tailwind orange-500 */
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 z-50 px-6 py-4 shadow">
+    <div class="flex gap-6 text-gray-800 dark:text-white">
+      <a href="#home" class="nav-link hover:text-orange-500 transition">Home</a>
+      <a href="#about" class="nav-link hover:text-orange-500 transition">About</a>
+      <a href="#skills" class="nav-link hover:text-orange-500 transition">Skills</a>
+      <a href="#portfolio" class="nav-link hover:text-orange-500 transition">Portfolio</a>
+      <a href="#contact" class="nav-link hover:text-orange-500 transition">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="pt-24">
+
+    <section id="home" class="min-h-screen pt-24 px-6 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <h1 class="text-4xl font-bold mb-4">Home Section</h1>
+      <p>Welcome to the home section.</p>
+    </section>
+
+    <section id="about" class="min-h-screen pt-24 px-6 bg-white dark:bg-gray-800">
+      <h1 class="text-4xl font-bold mb-4">About Section</h1>
+      <p>This is the about section.</p>
+    </section>
+
+    <section id="skills" class="min-h-screen pt-24 px-6 bg-white dark:bg-gray-900">
+      <h1 class="text-4xl font-bold mb-4">Skills Section</h1>
+      <p>This is the skills section.</p>
+    </section>
+
+    <section id="portfolio" class="min-h-screen pt-24 px-6 bg-white dark:bg-gray-800">
+      <h1 class="text-4xl font-bold mb-4">Portfolio Section</h1>
+      <p>This is the portfolio section.</p>
+    </section>
+
+    <section id="contact" class="min-h-screen pt-24 px-6 bg-white dark:bg-gray-900">
+      <h1 class="text-4xl font-bold mb-4">Contact Section</h1>
+      <p>This is the contact section.</p>
+    </section>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      const observerOptions = {
+        root: null,
+        rootMargin: "-50% 0px -50% 0px",
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            navLinks.forEach((link) => {
+              link.classList.remove("active");
+              if (link.getAttribute("href") === `#${id}`) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach((section) => observer.observe(section));
+    });
+  </script>
+</body>
+</html>

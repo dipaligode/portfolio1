@@ -1,31 +1,21 @@
 <?php
-require 'email_helper.php';
+require_once 'email_helper.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = htmlspecialchars($_POST['name'] ?? '');
-    $email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
-    $message = htmlspecialchars($_POST['message'] ?? '');
+$name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
+$message = $_POST['message'] ?? '';
 
-    if (!$name || !$email || !$message) {
-        echo "Invalid input.";
-        exit;
-    }
+$body = "
+  <h2>New Message from Portfolio</h2>
+  <p><strong>Name:</strong> " . htmlspecialchars($name) . "</p>
+  <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
+  <p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>
+";
 
-    $subject = "New Contact Message from $name";
-    $body = "
-        <strong>Name:</strong> $name<br>
-        <strong>Email:</strong> $email<br>
-        <strong>Message:</strong><br>$message
-    ";
-
-    $to = 'your@email.com'; // Your destination email
-
-    if (sendEmail($to, $subject, $body)) {
-        echo "Message sent successfully!";
-    } else {
-        echo "Failed to send message.";
-    }
+if (sendEmail('dipaligode1311@gmail.com', "Contact From Portfolio", $body)) {
+    echo "Message sent successfully!";
 } else {
-    echo "Invalid request.";
+    echo "Failed to send email. Please try again.";
 }
+
 ?>
